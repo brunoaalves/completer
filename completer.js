@@ -1,6 +1,7 @@
 ;(function($) {
 
 $.fn.extend({
+	alert("test");
 	completable: function(url, options) {
 	  options.url = url;
 	  options.width = options.width || $(this).innerWidth() + "px";
