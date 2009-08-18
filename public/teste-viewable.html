@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<title>jquery.viewable test</title>
+<script src="/javascripts/jquery-1.3.2.js" type="text/javascript" charset="utf-8"></script>
+<script src="/javascripts/jquery.viewable.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+$(function() {
+  $('.test').viewable(function(event, percent) {
+    $(this).text("visible " + parseInt( percent*100 ) + "%");
+  });
+  $('#test2').stopViewable().text('Not monitored');
+  $('.test3').viewable(function(event, percent) {
+    $(this).text("visible " + parseInt( percent*100 ) + "%");
+  });
+});
+</script>
+<style type="text/css" media="screen">
+#test1 { }
+#test3 { position: absolute; top: -10px; left:50%; }
+.test { border: 2px solid #000; width: 100px; height: 100px; }
+
+#a {
+  position:absolute;
+  top:50%;
+  left:50%;
+  background:red;
+  width:300px;
+  overflow:hidden;
+}
+</style>
+</head>
+<body>
+<div id="a">
+  <div id="test1" class="test"></div>
+  <div id="test2" class="test"></div>
+  <div id="test3" class="test"></div>
+</div>
+</body>
+</html>
